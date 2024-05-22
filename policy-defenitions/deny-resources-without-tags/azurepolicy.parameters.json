@@ -1,0 +1,57 @@
+{
+  "environment": {
+    "type": "String",
+    "metadata": {
+      "displayName": "environment tag",
+      "description": "Name of the tag to enforce"
+    }
+  },
+  "project": {
+    "type": "String",
+    "metadata": {
+      "displayName": "project tag",
+      "description": "Name of the tag to enforce"
+    }
+  },
+  "owner": {
+    "type": "String",
+    "metadata": {
+      "displayName": "owner tag",
+      "description": "Name of the tag to enforce"
+    }
+  },
+  "createdBy": {
+    "type": "String",
+    "metadata": {
+      "displayName": "createdBy tag",
+      "description": "Name of the tag to enforce"
+    }
+  },
+  "timeStamp": {
+    "type": "String",
+    "metadata": {
+      "displayName": "timeStamp tag",
+      "description": "Name of the tag to enforce"
+    }
+  },
+  "location": {
+    "type": "String",
+    "metadata": {
+      "displayName": "location tag",
+      "description": "Name of the tag to enforce"
+    }
+  },
+  "effect": {
+    "type": "String",
+    "metadata": {
+      "displayName": "Effect",
+      "description": "Deny, Audit or Disabled the execution of the Policy"
+    },
+    "allowedValues": [
+      "Deny",
+      "Audit",
+      "Disabled"
+    ],
+    "defaultValue": "Audit"
+  }
+}

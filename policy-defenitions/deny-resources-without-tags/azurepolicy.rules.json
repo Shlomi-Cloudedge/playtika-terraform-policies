@@ -1,0 +1,33 @@
+{
+  "if": {
+    "anyOf": [
+      {
+        "field": "[concat('tags[', parameters('environment'), ']')]",
+        "exists": "false"
+      },
+      {
+        "field": "[concat('tags[', parameters('project'), ']')]",
+        "exists": "false"
+      },
+      {
+        "field": "[concat('tags[', parameters('owner'), ']')]",
+        "exists": "false"
+      },
+      {
+        "field": "[concat('tags[', parameters('CreatedBy'), ']')]",
+        "exists": "false"
+      },
+      {
+        "field": "[concat('tags[', parameters('TimeStamp'), ']')]",
+        "exists": "false"
+      },
+      {
+        "field": "[concat('tags[', parameters('location'), ']')]",
+        "exists": "false"
+      }
+    ]
+  },
+  "then": {
+    "effect": "[parameters('effect')]"
+  }
+}

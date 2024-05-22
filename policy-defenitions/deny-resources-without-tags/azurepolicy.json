@@ -1,0 +1,103 @@
+{
+  "name": "12dc4dea-6097-4a18-b24e-a9a3e00dd456",
+  "type": "Microsoft.Authorization/policyDefinitions",
+  "properties": {
+    "displayName": "Deny-resource-without-tag",
+    "description": "need to add description",
+    "metadata": {
+      "version": "1.0.0",
+      "category": "Tags"
+    },
+    "mode": "Indexed",
+    "parameters": {
+      "environment": {
+        "type": "String",
+        "metadata": {
+          "displayName": "environment tag",
+          "description": "Name of the tag to enforce"
+        }
+      },
+      "project": {
+        "type": "String",
+        "metadata": {
+          "displayName": "project tag",
+          "description": "Name of the tag to enforce"
+        }
+      },
+      "owner": {
+        "type": "String",
+        "metadata": {
+          "displayName": "owner tag",
+          "description": "Name of the tag to enforce"
+        }
+      },
+      "createdBy": {
+        "type": "String",
+        "metadata": {
+          "displayName": "createdBy tag",
+          "description": "Name of the tag to enforce"
+        }
+      },
+      "timeStamp": {
+        "type": "String",
+        "metadata": {
+          "displayName": "timeStamp tag",
+          "description": "Name of the tag to enforce"
+        }
+      },
+      "location": {
+        "type": "String",
+        "metadata": {
+          "displayName": "location tag",
+          "description": "Name of the tag to enforce"
+        }
+      },
+      "effect": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Effect",
+          "description": "Deny, Audit or Disabled the execution of the Policy"
+        },
+        "allowedValues": [
+          "Deny",
+          "Audit",
+          "Disabled"
+        ],
+        "defaultValue": "Audit"
+      }
+    },
+    "policyRule": {
+      "if": {
+        "anyOf": [
+          {
+            "field": "[concat('tags[', parameters('environment'), ']')]",
+            "exists": "false"
+          },
+          {
+            "field": "[concat('tags[', parameters('project'), ']')]",
+            "exists": "false"
+          },
+          {
+            "field": "[concat('tags[', parameters('owner'), ']')]",
+            "exists": "false"
+          },
+          {
+            "field": "[concat('tags[', parameters('CreatedBy'), ']')]",
+            "exists": "false"
+          },
+          {
+            "field": "[concat('tags[', parameters('TimeStamp'), ']')]",
+            "exists": "false"
+          },
+          {
+            "field": "[concat('tags[', parameters('location'), ']')]",
+            "exists": "false"
+          }
+        ]
+      },
+      "then": {
+        "effect": "[parameters('effect')]"
+      }
+    }
+  }
+}
